@@ -17,5 +17,4 @@ public class RandomTicketAllocatorTest {
         assertThat(randomTicketAllocator.getTicketNumber(), anyOf(is(1), is(2), is(3)));
     }
 
-
 }
