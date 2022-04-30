@@ -23,7 +23,7 @@ public class RandomTicketAllocatorTest {
     @Test
     public void checkThatStubWorksAsExpected() {
         RandomTicketAllocator randomTicketAllocator = mock(RandomTicketAllocator.class);
-        when(randomTicketAllocator.getTicketNumber()).thenReturn(5);
+        when(randomTicketAllocator.getTicketNumber()).thenReturn(2);
 
         int actualResult = randomTicketAllocator.getTicketNumber();
         assertEquals(2, actualResult);
