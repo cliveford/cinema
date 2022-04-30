@@ -17,15 +17,15 @@ public class RandomTicketAllocatorTest {
     @DisplayName("Random Ticket Allocator should return an int between 1 and 3")
     public void checkThatRandomTicketAllocatorReturnsOneToThreeTickets() {
         RandomTicketAllocator randomTicketAllocator = new RandomTicketAllocator();
-        assertThat(randomTicketAllocator.getTicketNumber(), anyOf(is(1), is(2), is(3)));
+        assertThat(randomTicketAllocator.getNumberOfTickets(), anyOf(is(1), is(2), is(3)));
     }
 
     @Test
+    @DisplayName("Stub should return int with value of 2")
     public void checkThatStubWorksAsExpected() {
         RandomTicketAllocator randomTicketAllocator = mock(RandomTicketAllocator.class);
-        when(randomTicketAllocator.getTicketNumber()).thenReturn(2);
-
-        int actualResult = randomTicketAllocator.getTicketNumber();
+        when(randomTicketAllocator.getNumberOfTickets()).thenReturn(2);
+        int actualResult = randomTicketAllocator.getNumberOfTickets();
         assertEquals(2, actualResult);
 
     }
