@@ -21,5 +21,6 @@ class AuditoriumTest {
         expected.add(rowC);
         ArrayList<ArrayList<Integer>> actual = auditorium.getAuditorium();
         assertEquals(expected, actual);
+
     }
 }
