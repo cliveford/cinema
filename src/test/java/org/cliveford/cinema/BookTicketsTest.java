@@ -14,16 +14,6 @@ import static org.mockito.Mockito.when;
 class BookTicketsTest {
 
     @Test
-    @DisplayName("Stub should return int with value of 2")
-    public void checkThatStubWorksAsExpected() {
-        RandomTicketAllocator randomTicketAllocator = mock(RandomTicketAllocator.class);
-        when(randomTicketAllocator.getNumberOfTickets()).thenReturn(2);
-        int actualResult = randomTicketAllocator.getNumberOfTickets();
-        assertEquals(2, actualResult);
-
-    }
-
-    @Test
     @DisplayName("Stub should return 2d Array List that equals production 2d Array List")
     public void checkThatTestListEqualsProductionList() {
         ArrayList<ArrayList<Integer>> testList = new ArrayList<>();
