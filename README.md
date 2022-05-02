@@ -1,33 +1,57 @@
-# Poker Hands Kata  
+# Cinnamon Cinemas Movie Theatre Seating Challenge  
+
+## Task:  
+Develop a program to allocate seats to customers purchasing tickets for a movie theatre.  
 
 ## Criteria:  
-Compare poker hands and output which, if either, is the winning hand, along with the hand rank and any kickers.  
+Well-designed and tested code representing real-world scenarios.  
 
-### Sample input:
-Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH  
-Black: 2H 4S 4C 2D 4H  White: 2S 8S AS QS 3S  
-Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C KH  
-Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH  
+### Business Requirements:  
+The Cinnamon Cinemas movie theatre has 15 seats, arranged in 3 rows of 5.  
+Rows are assigned a letter from A to C.  
+Seats are assigned a number from 1 to 5.  
 
-### Sample output:
-White wins. - with high card: Ace  
-Black wins. - with full house: 4 over 2  
-Black wins. - with high card: 9  
-Tie.  
+### User Story:  
+As a Cinnamon Cinemas Movie Theatre Manager, I want to allocate seats to customers,  
+so that I can control reserved seating for the theatre.  
+GIVEN - a customer wants to request some tickets.  
+WHEN - they request a number of seats between 1 and 3 for a movie.  
+THEN - the customer should be allocated the required number of seats from the available seats on the seating plan.  
+AND - the seats should be recorded as allocated.  
 
-## Assumptions:
-Assumed it was ok to change the output message to reflect the winning hand in more detail.  
-e.g. White wins. - with two pair: Tens/Twos & Ace kicker.
+### Acceptance Criteria and Assumptions:  
+Write a program that allocates seats based on a random integer 'number of seats' between 1 and 3.  
+Your program should allocate the required number of seats from the available seats starting from seat A1  
+and filling the Auditorium from left to right, front to back.  
+The Auditorium is empty and all seats are available for sale when the program starts.  
+The program should continue to allocate a random number of seats until it finds there are not enough seats left  
+to complete the request.  
+Once there are not enough seats available to be allocated then the program can halt.  
 
-## Process followed:
+
+### Process followed:  
 I began by sketching out an overview of how I thought the programme should flow.  
-I wrote an initial failing test to check if either hand contained a flush as I thought this would be the easiest rank to detect.  
-I created a boolean method to check for flush and the test passed.  
-I then wrote failing tests and methods for all hand rankings.  
-Once all tests were passing, I wrote a failing test to check for hand value e.g. Ace high flush = 114.  
-Wrote method to calculate hand value and pass the test above.  
-Then I wrote failing tests to test input hands resulting in the correct hand winning.  
-Refactored methods to compare hands and pass the failing tests.  
-Wrote failing tests to test for the correct output message.  
-Refactored code to pass the failing tests.  
-Final refactor of code, added finals where appropriate, and a general clean up.  
+I wrote an initial failing test using hamcrest matchers to check that my RandomTicketAllocator class returned -  
+a random integer between 1 and 3.  
+Refactored RandomTicketAllocator class to pass failing test.  
+It was at this point that I reconsidered the bigger picture and started to consider how I could test for non-random -  
+integers, I knew this was going to be essential to test for specific scenarios e.g. -  
+Only 2 seats remain unbooked and the random integer 'number of seats' is 3 or 2 or 1.  
+I realised that I needed a way to control test inputs within my unit tests to enable testing for specific scenarios.  
+This led to researching test doubles which eventually led to discovering mockito.
+I created a test in RandomTicketAllocatorTest to test my understanding of mockito mocks and stubs, and it passed.  
+I then created an Auditorium class to represent an empty auditorium.
+Wrote test to test Auditorium getter was returning an empty auditorium.  
+I created a BookTickets class adhering to dependency inversion principles.
+I wrote two methods within BookTickets class, one checks if the auditorium is full and if it isn't the other loops through -  
+the auditorium 2d ArrayList checking for the first unbooked seat, it then books this seat and repeats until all requested -  
+seats have been booked, it then returns a message informing the booker of their booked seats rows and seat numbers.  
+I wrote various tests within BookTicketsTest class implementing mockito mocks and stubs to test for specific booking scenarios.  
+All tests passed.  
+I refactored code as I went and tried to adhere to SOLID principles where appropriate.  
+
+### Summary:  
+I didn't stick with a pure TDD approach for the entire project, I think this was due to a lack of understanding regarding test doubles.  
+I now feel that my understanding of test doubles and Java principles as a whole has improved to the point that I would -  
+be able to apply a pure TDD approach in future projects/programs.  
+
