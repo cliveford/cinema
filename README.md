@@ -40,9 +40,7 @@ I created a test in RandomTicketAllocatorTest to test my understanding of mockit
 I then created an Auditorium class to represent an empty auditorium.  
 Wrote test to test Auditorium getter was returning an empty auditorium.  
 I created a BookTickets class adhering to dependency inversion principles.  
-I wrote two methods within BookTickets class, one checks if the auditorium is full and if it isn't the other loops through  
-the auditorium 2d ArrayList checking for the first unbooked seat, it then books this seat and repeats until all requested  
-seats have been booked, it then returns a message informing the booker of their booked seats rows and seat numbers.  
+I wrote two methods within BookTickets class, one checks if the auditorium is full and if it isn't the other loops through the auditorium 2d ArrayList checking for the first unbooked seat, it then books this seat and repeats until all requested seats have been booked, it then returns a message informing the booker of their booked seats rows and seat numbers.  
 I wrote various tests within BookTicketsTest class implementing mockito mocks and stubs to test for specific booking scenarios.  
 All tests passed.  
 I refactored code as I went and tried to adhere to SOLID principles where appropriate.  
