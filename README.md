@@ -31,20 +31,17 @@ Once there are not enough seats available to be allocated then the program can h
 
 ### Process followed:  
 I began by sketching out an overview of how I thought the programme should flow.  
-I wrote an initial failing test using hamcrest matchers to check that my RandomTicketAllocator class returned -  
-a random integer between 1 and 3.  
+I wrote an initial failing test using hamcrest matchers to check that my RandomTicketAllocator class returned a random integer between 1 and 3.  
 Refactored RandomTicketAllocator class to pass failing test.  
-It was at this point that I reconsidered the bigger picture and started to consider how I could test for non-random -  
-integers, I knew this was going to be essential to test for specific scenarios e.g. -  
-Only 2 seats remain unbooked and the random integer 'number of seats' is 3 or 2 or 1.  
+It was at this point that I reconsidered the bigger picture and started to consider how I could test for non-random integers, I knew this was going to be essential to test for specific scenarios e.g. Only 2 seats remain unbooked and the random integer 'number of seats' is 3 or 2 or 1.  
 I realised that I needed a way to control test inputs within my unit tests to enable testing for specific scenarios.  
-This led to researching test doubles which eventually led to discovering mockito.
+This led to researching test doubles which eventually led to discovering mockito.  
 I created a test in RandomTicketAllocatorTest to test my understanding of mockito mocks and stubs, and it passed.  
-I then created an Auditorium class to represent an empty auditorium.
+I then created an Auditorium class to represent an empty auditorium.  
 Wrote test to test Auditorium getter was returning an empty auditorium.  
-I created a BookTickets class adhering to dependency inversion principles.
-I wrote two methods within BookTickets class, one checks if the auditorium is full and if it isn't the other loops through -  
-the auditorium 2d ArrayList checking for the first unbooked seat, it then books this seat and repeats until all requested -  
+I created a BookTickets class adhering to dependency inversion principles.  
+I wrote two methods within BookTickets class, one checks if the auditorium is full and if it isn't the other loops through  
+the auditorium 2d ArrayList checking for the first unbooked seat, it then books this seat and repeats until all requested  
 seats have been booked, it then returns a message informing the booker of their booked seats rows and seat numbers.  
 I wrote various tests within BookTicketsTest class implementing mockito mocks and stubs to test for specific booking scenarios.  
 All tests passed.  
@@ -52,6 +49,5 @@ I refactored code as I went and tried to adhere to SOLID principles where approp
 
 ### Summary:  
 I didn't stick with a pure TDD approach for the entire project, I think this was due to a lack of understanding regarding test doubles.  
-I now feel that my understanding of test doubles and Java principles as a whole has improved to the point that I would -  
-be able to apply a pure TDD approach in future projects/programs.  
+I now feel that my understanding of test doubles and Java principles as a whole has improved to the point that I would be able to apply a pure TDD approach in future projects/programs.  
 
