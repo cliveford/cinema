@@ -46,6 +46,6 @@ All tests passed.
 I refactored code as I went and tried to adhere to SOLID principles where appropriate.  
 
 ### Summary:  
-I didn't stick with a pure TDD approach for the entire project, I think this was due to a lack of understanding regarding test doubles.  
+I didn't always stick with a pure TDD approach for the entire project, I think this was due to a lack of understanding regarding test doubles.  
 I now feel that my understanding of test doubles and Java principles as a whole has improved to the point that I would be able to apply a pure TDD approach in future projects/programs.  
 
