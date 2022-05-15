@@ -50,5 +50,6 @@ I didn't always stick with a pure TDD approach for the entire project, I think t
 I now feel that my understanding of test doubles and Java principles as a whole has improved to the point that I would be able to apply a pure TDD approach in future projects/programs.  
 
 ### Future improvements:  
+Add different seat classes
 Add more unit tests
 
